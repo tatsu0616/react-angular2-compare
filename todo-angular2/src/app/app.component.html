@@ -1,3 +1,9 @@
-<h1>
-  {{title}}
-</h1>
+<div class="add">
+  <h2 class="title">TODOサンプルアプリケーション</h2>
+  <input type="text" class="inputBox" placeholder="TODOを入力" [(ngModel)]="newTask" >
+  <input type="button" class="addBtn" (click)="addTask()" value="登録">
+</div>
+
+<ul class="todoList">
+  <li *ngFor="let task of tasks" (click)="onClick(task)" [class.checked]="!task.enabled"> {{task.name}} </li>
+</ul>
