@@ -2,13 +2,14 @@ import React from 'react';
 import '../styles/todo.css';
 
 const Todo = (props) => {
-  if (props.isChecked) {
+  const { todo, checkTodo } = props;
+  if (todo.isChecked) {
     return (
-      <li className="checked">{props.todo}</li>
+      <li className="checked" onClick={() => checkTodo(todo.id)}>{todo.text}</li>
     )
   } else {
     return (
-      <li>{props.todo}</li>
+      <li onClick={() => checkTodo(todo.id)}>{todo.text}</li>
     )
   }
 };

@@ -2,13 +2,17 @@ import React from 'react';
 import Todo from './Todo';
 import '../styles/todoList.css';
 
-const TodoList = () => (
-  <ul className="todoList">
-    <Todo todo={'夕食の材料を買い物'} isChecked={false} />
-    <Todo todo={'請求書の支払い'} isChecked={true} />
-    <Todo todo={'ジムへ行く'} isChecked={false} />
-    <Todo todo={'洗濯物を取り込み'} isChecked={false} />
-  </ul>
-);
+const TodoList = (props) => {
+  const { todos, checkTodo } = props;
+  const list = [];
+  todos.forEach((todo, index) =>
+    list.push(<Todo key={index} todo={todo} checkTodo={checkTodo} />
+  ));
+  return (
+    <ul className="todoList">
+      {list}
+    </ul>
+  );
+}
 
 export default TodoList;
