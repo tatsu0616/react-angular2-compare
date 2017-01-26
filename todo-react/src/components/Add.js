@@ -20,7 +20,6 @@ class Add extends Component {
           onClick={() => {
             addTodo(this.inputBox.value);
             this.inputBox.value = '';
-
           }}
         />
       </div>
