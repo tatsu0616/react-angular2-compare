@@ -1,4 +1,4 @@
-export interface Task {
+export interface Todo {
   name: string;
   enabled: boolean;
 }
