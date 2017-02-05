@@ -1,5 +1,6 @@
 import { Component,Input } from '@angular/core';
 import { Todo } from '../todo';
+import {TodoService} from '../services/todo.service';
 
 @Component({
   selector: 'app-todo',
@@ -9,7 +10,10 @@ import { Todo } from '../todo';
 export class TodoComponent {
   @Input() todo: Todo;
 
+  constructor(private service: TodoService) {
+  }
+
   onClick(todo: Todo): void {
-    todo.enabled = ! todo.enabled;
+    this.service.toggleEnabled(todo);
   }
 }

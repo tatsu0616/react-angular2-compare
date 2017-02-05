@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Todo } from '../todo';
+import {TodoService} from '../services/todo.service';
 
 @Component({
   selector: 'app-add',
@@ -7,13 +7,13 @@ import { Todo } from '../todo';
   styleUrls: ['./add.component.css']
 })
 export class AddComponent {
-  @Input() todos: Todo[];
   inputValue;
 
+  constructor(private service: TodoService) {
+  }
+
   addTodo(): void {
-    if(this.inputValue){
-      this.todos.push({ name: this.inputValue ,enabled: true});
-      this.inputValue = '';
-    }
+    this.service.addTodo(this.inputValue);
+    this.inputValue = '';
   }
 }
